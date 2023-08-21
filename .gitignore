@@ -1,0 +1,5 @@
+# Client Folder
+/client/node_modules
+
+# API Folder
+/api/node_modules
