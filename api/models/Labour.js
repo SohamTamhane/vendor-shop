@@ -12,6 +12,22 @@ const labourSchema = new mongoose.Schema({
     mobile: {
         type: Number,
         required: true
+    },
+    vehicleNo : {
+        type: String,
+        required: true
+    }
+    ,
+    password : {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ["User", "Admin", "Labour"]
+    },
+    orders: {
+        type: Array
     }
 })
 

@@ -39,6 +39,13 @@ function AddProducts(){
         if(image){
             await axios.post(process.env.REACT_APP_BASE_URL+'/product', {title, category, image, price, vendor, description}).then(res=>{
                 setLoginStatus("Product Added Successfully");
+                setTitle("");
+                setCategory("");
+                setPrice("");
+                setVendor("");
+                setDescription("");
+                setImage(undefined);
+                setSelectedFile(null);
             }).catch(error=>{
                 setLoginStatus(error?.response?.data?.message);
             })

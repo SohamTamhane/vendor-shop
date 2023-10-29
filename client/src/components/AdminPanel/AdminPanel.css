@@ -104,4 +104,20 @@
     outline: none;
     border-radius: 5px;
     margin-top: 2px;
+    margin-right: 5px;
+}
+.dropdown-list{
+    padding: 7px 10px;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}
+
+.login-status-div{
+    color: #001ba4;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
 }

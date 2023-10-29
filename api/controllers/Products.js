@@ -22,7 +22,6 @@ exports.create = async (req, res) => {
         }
 
         const productResponse = await Product.create({title, slug, category, price, description, image, vendor});
-
         return res.status(200).json({
             success: true,
             message: "Product Created Successfully"

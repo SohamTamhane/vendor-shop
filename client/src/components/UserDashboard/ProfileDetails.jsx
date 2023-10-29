@@ -38,7 +38,7 @@ function ProfileDetails(){
                     </div>
                 </div>
             </div>
-            : <div className="unauth-msg-div">Please Login as Admin</div>
+            : <div className="unauth-msg-div">Please Login as User</div>
         }
         </>
     )

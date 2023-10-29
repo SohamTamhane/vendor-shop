@@ -142,3 +142,19 @@
     text-align: center;
     margin-top: 10px;
 }
+.cost-text-div{
+    color: #001ba4;
+    font-weight: bold;
+}
+.calculate-btn{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+}

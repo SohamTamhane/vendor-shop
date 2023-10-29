@@ -25,7 +25,7 @@ function AllProducts(){
             <div className="all-product-main-div">
                 {
                     products?.data?.map((elm=>(
-                        <Product image={process.env.REACT_APP_FILE_URL+elm?.image} title={elm?.title} vendor={elm?.vendor} category={elm?.category} price={elm?.price} slug={elm?.slug}/>
+                        <Product image={elm?.image} title={elm?.title} vendor={elm?.vendor} category={elm?.category} price={elm?.price} slug={elm?.slug}/>
                     )))
                 }
             </div>

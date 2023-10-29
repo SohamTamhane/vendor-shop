@@ -1,5 +1,7 @@
+const Labour = require('../models/Labour');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const { labours } = require('./Labour');
 
 exports.register = async(req, res)=>{
     try{
@@ -192,3 +194,121 @@ exports.viewOrders = async (req, res) => {
         })
     }
 }
+
+exports.readNotification = async (req, res) => {
+    try{
+        const {orderid} = req.body;
+        const orderResponse = await User.updateMany({orders: {$elemMatch: {orderid: orderid}}}, {$set: {"orders.$.read": true}})
+        return res.status(200).json({
+            success: true,
+            message: "Notification Read Successfully",
+            data: orderResponse
+        })
+        
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+exports.assignLabour = async (req, res) => {
+    try{
+        const {email, order} = req.body;
+        
+        let ordersResponse = await Labour.updateOne({email},{$push: {orders: order}});
+        
+        return res.status(200).json({
+            success: true,
+            message: "Labour Assigned Successfully"
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+exports.labourOrders = async (req, res) => {
+    try{
+        const {email} = req.body;
+        const orderResponse = await Labour.findOne({role: "Labour", email}).select({orders: 1, _id: 0})
+        return res.status(200).json({
+            success: true,
+            message: "Orders Fetched Successfully",
+            data: orderResponse
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+exports.acceptLabourOrder = async (req, res) => {
+    try{
+        const {orderid, email} = req.body;
+        const orderResponse = await User.updateMany({orders: {$elemMatch: {orderid: orderid}}}, {$set: {"orders.$.labour": email}})
+        const order1Response = await Labour.updateMany({orders: {$elemMatch: {orderid: orderid}}}, {$set: {"orders.$.labour": email}})
+        return res.status(200).json({
+            success: true,
+            message: "Order Accepted Successfully",
+            data: orderResponse
+        })
+        
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+exports.findLabour = async (req, res) => {
+    try{
+        const {email} = req.body;
+        const usersRes = await Labour.find({role: "Labour", email}).select({name: 1, email: 1, mobile: 1, _id: 0, vehicleNo: 1});
+        return res.status(200).json({
+            success: true,
+            message: "Users Details Fetched Successfully",
+            data: usersRes
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+// exports.rejectOrder = async (req, res) => {
+//     try{
+//         const {email, orderid} = req.body;
+//         const usersRes =  await Labour.deleteOne({orders: {$elemMatch: {orderid: orderid}}, email}, {$set: {"orders.$.labour": email}});
+//         return res.status(200).json({
+//             success: true,
+//             message: "Users Details Fetched Successfully",
+//             data: usersRes
+//         })
+//     }
+//     catch(error){
+//         return res.status(500).json({
+//             success: false,
+//             message: "Internal Server Error with orders",
+//             error: error.message
+//         })
+//     }
+// }

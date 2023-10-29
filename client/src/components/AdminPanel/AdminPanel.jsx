@@ -16,7 +16,7 @@ function AdminPanel(){
                     <div className="admin-panel-heading">Admin Panel</div>
                     <div className="admin-panel-options-div">
                         <Link to='/adminpanel/users' className="admin-panel-options">Manage Users</Link>
-                        <Link to='/adminpanel/addlabour' className="admin-panel-options">Add Labour Details</Link>
+                        <Link to='/adminpanel/managelabours' className="admin-panel-options">Manage Labours</Link>
                         <Link to='/adminpanel/manageorders' className="admin-panel-options">Manage Orders</Link>
                         <Link to='/adminpanel/addproducts' className="admin-panel-options">Add Products</Link>
                     </div>

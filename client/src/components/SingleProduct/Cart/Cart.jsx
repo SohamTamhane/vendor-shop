@@ -22,7 +22,7 @@ function Cart(){
             <div className="page-title">Your Cart</div>
             <div className="single-product-main-div">
                 {cart?.map((elm)=>(
-                    <CartCard id={elm?._id} key={elm?._id} title={elm?.title} image={process.env.REACT_APP_FILE_URL+elm?.image[0]} price={elm?.price} qty={elm?.qty}/>
+                    <CartCard id={elm?._id} key={elm?._id} title={elm?.title} image={elm?.image[0]} price={elm?.price} qty={elm?.qty}/>
                 ))}
             </div>
             <br />

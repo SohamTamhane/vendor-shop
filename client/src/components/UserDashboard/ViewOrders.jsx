@@ -2,6 +2,7 @@ import './UserDashboard.css';
 import { Context } from '../../utils/Context';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import OrderBox from './OrderBox';
 
 function ViewOrders(){
     const {loginInfo} = useContext(Context);
@@ -26,19 +27,12 @@ function ViewOrders(){
                     <div className="admin-panel-heading">View Orders</div>
                     <div className="admin-panel-div-box">
                         {orders?.data?.orders?.map((order)=>(
-                            <div key={order?.orderid} className="option-main-outer-box">
-                                <div className="user-name-title">{order?.title}</div>
-                                <div className="user-email-title">OrderID: {order?.orderid}</div>
-                                <div className="user-mobile-title">Vendor: {order?.vendor}</div>
-                                <div className="user-mobile-title">Qty: {order?.qty}</div>
-                                <div className="user-mobile-title">Price: {order?.price}</div>
-                                <div className="user-mobile-title-status">Status: {order?.status ? "Accepted":"Pending"}</div>
-                            </div>
+                            <OrderBox key={order?.orderid} order={order}/>
                         ))}
                     </div>
                 </div>
             </div>
-            : <div className="unauth-msg-div">Please Login as Admin</div>
+            : <div className="unauth-msg-div">Please Login as User</div>
         }
         </>
     )

@@ -35,7 +35,7 @@ function Home(){
                 <div className="section-heading">Products</div>
                 <div className="products-section-div">
                     {product?.data?.map((elm=>(
-                        <Product key={elm?._id} title={elm?.title} image={process.env.REACT_APP_FILE_URL+elm?.image[0]} slug={elm?.slug} vendor={elm?.vendor} category={elm?.category} price={elm?.price}/>
+                        <Product key={elm?._id} title={elm?.title} image={elm?.image[0]} slug={elm?.slug} vendor={elm?.vendor} category={elm?.category} price={elm?.price}/>
                     )))}
                 </div>
                 <div className="section-btn-div">

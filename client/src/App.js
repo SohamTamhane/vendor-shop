@@ -13,12 +13,18 @@ import Cart from "./components/SingleProduct/Cart/Cart";
 import AllProducts from "./components/Product/AllProducts";
 import Manageuser from "./components/AdminPanel/ManageUser";
 import AddProducts from "./components/AdminPanel/AddProducts";
-import AddLabour from "./components/AdminPanel/AddLabour";
 import ManageOrder from "./components/AdminPanel/ManageOrder";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
 import ViewOrders from "./components/UserDashboard/ViewOrders";
 import ProfileDetails from "./components/UserDashboard/ProfileDetails";
 import About from "./components/Home/About";
+import Notification from "./components/UserDashboard/Notification";
+import LabourRegister from "./components/LabourPanel/LabourRegister";
+import LabourLogin from "./components/LabourPanel/LabourLogin";
+import ManageLabour from "./components/AdminPanel/ManageLabour";
+import LabourPanel from "./components/LabourPanel/LabourPanel";
+import LabourOrders from "./components/LabourPanel/LabourOrders";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -32,19 +38,25 @@ function App() {
                         <Route path='/login' element={<Login/>}/>
                         <Route path='/register' element={<Register/>}/>
                         <Route path='/admin' element={<Admin/>}/>
+                        <Route path='/labour/register' element={<LabourRegister/>}/>
+                        <Route path='/labour/login' element={<LabourLogin/>}/>
+                        <Route path='/labour/panel' element={<LabourPanel/>}/>
+                        <Route path='/labour/orders' element={<LabourOrders/>}/>
                         <Route path='/userdashboard' element={<UserDashboard/>}/>
                         <Route path='/userdashboard/manageorders' element={<ViewOrders/>}/>
                         <Route path='/userdashboard/profile' element={<ProfileDetails/>}/>
+                        <Route path='/userdashboard/notifications' element={<Notification/>}/>
                         <Route path='/adminpanel' element={<AdminPanel/>}/>
                         <Route path='/adminpanel/users' element={<Manageuser/>}/>
                         <Route path='/adminpanel/addproducts' element={<AddProducts/>}/>
-                        <Route path='/adminpanel/addlabour' element={<AddLabour/>}/>
                         <Route path='/adminpanel/manageorders' element={<ManageOrder/>}/>
+                        <Route path='/adminpanel/managelabours' element={<ManageLabour/>}/>
                         <Route path='/cart' element={<Cart/>}/>
                         <Route path='/products' element={<AllProducts/>}/>
                         <Route path='/about' element={<About/>}/>
                         <Route path='*' element={<Error/>}/>
                     </Routes>
+                    <Footer/>
                 </AppContext>
             </BrowserRouter>
         </div>
