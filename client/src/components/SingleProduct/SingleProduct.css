@@ -142,6 +142,13 @@
     text-align: center;
     margin-top: 10px;
 }
+.total-price-text{
+    font-size: 25px;
+    font-weight: bold;
+    color: #001ba4;
+    text-align: center;
+    margin-top: 10px;
+}
 .cost-text-div{
     color: #001ba4;
     font-weight: bold;

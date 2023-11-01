@@ -9,7 +9,7 @@ function About() {
                     <br />
                     <div className="google-maps-div">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.894897122701!2d74.23795497383207!3d16.7320952213545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1008d2532b153%3A0xa154d05f5c9250ae!2sD.%20Y.%20Patil%20College%20Of%20Engineering%20%26%20Technology!5e0!3m2!1sen!2sin!4v1692559037566!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15279.283204458994!2d74.5642433!3d16.7855888!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc11f36d232c18d%3A0xa7726510374eeed3!2sAACHARY%20SHREE%20TULSI%20BLOOD%20BANK%2CUDGAON.!5e0!3m2!1sen!2sin!4v1698834818658!5m2!1sen!2sin"
                             width={600}
                             height={250}
                             style={{ border: 0}}

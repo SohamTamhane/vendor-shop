@@ -55,6 +55,7 @@ function Header(){
                             : ((loginInfo?.role === "User") ?  
                                 <>
                                     <li><Link to={'/userdashboard'} className="top-nav-links">User Dashboard</Link></li>
+                                    <li><Link to={'/cart'} className="top-nav-links">View Cart</Link></li>
                                     <li><Link onClick={logoutFunc} className="top-nav-links">Logout</Link></li>
                                 </>
                                 : (loginInfo?.role === "Admin") ?

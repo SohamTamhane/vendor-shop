@@ -25,6 +25,8 @@ import ManageLabour from "./components/AdminPanel/ManageLabour";
 import LabourPanel from "./components/LabourPanel/LabourPanel";
 import LabourOrders from "./components/LabourPanel/LabourOrders";
 import Footer from "./components/Footer/Footer";
+import EditProfile from "./components/UserDashboard/EditProfile";
+import EditLabourProfile from "./components/LabourPanel/EditLabourProfile";
 
 function App() {
     return (
@@ -42,9 +44,11 @@ function App() {
                         <Route path='/labour/login' element={<LabourLogin/>}/>
                         <Route path='/labour/panel' element={<LabourPanel/>}/>
                         <Route path='/labour/orders' element={<LabourOrders/>}/>
+                        <Route path='/labour/edit' element={<EditLabourProfile/>}/>
                         <Route path='/userdashboard' element={<UserDashboard/>}/>
                         <Route path='/userdashboard/manageorders' element={<ViewOrders/>}/>
                         <Route path='/userdashboard/profile' element={<ProfileDetails/>}/>
+                        <Route path='/userdashboard/edit' element={<EditProfile/>}/>
                         <Route path='/userdashboard/notifications' element={<Notification/>}/>
                         <Route path='/adminpanel' element={<AdminPanel/>}/>
                         <Route path='/adminpanel/users' element={<Manageuser/>}/>

@@ -40,6 +40,7 @@ function UserDashboard(){
                     <div className="admin-panel-heading">User Dashboard</div>
                     <div className="admin-panel-options-div">
                         <Link to='/userdashboard/profile' className="admin-panel-options">Profile Details</Link>
+                        <Link to='/userdashboard/edit' className="admin-panel-options">Edit Profile</Link>
                         <Link to='/userdashboard/manageorders' className="admin-panel-options">View Orders</Link>
                         <Link to='/userdashboard/notifications' className="admin-panel-options">Notification ({count?count:0})</Link>
                     </div>

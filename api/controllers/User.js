@@ -137,6 +137,53 @@ exports.users = async (req, res) => {
     }
 }
 
+exports.oneUser = async (req, res) => {
+    try{
+        const {email} = req.body;
+        const usersRes = await User.find({role: "User", email}).select({name: 1, email: 1, mobile: 1, address1: 1, address2: 1, city: 1, state: 1, pincode: 1, _id: 0});
+        return res.status(200).json({
+            success: true,
+            message: "Users Details Fetched Successfully",
+            data: usersRes
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+// Remaining
+exports.updateInfo = async (req, res) => {
+    try{
+        const {name, mobile, address1, address2, city, state, pincode, email, role} = req.body;
+        
+        if(!email || !role){
+            return res.status(401).json({
+                success: false,
+                message: "Authorized Access"
+            })
+        }
+        const response = await User.findOneAndUpdate({email, role}, {
+            name, mobile, address1, address2, city, state, pincode
+        })
+        return res.status(200).json({
+            success: true,
+            message: "User Details Updated Successfully"
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message
+        })
+    }
+}
+
 exports.allorders = async (req, res) => {
     try{
         const orderResponse = await User.findOne({role: "Admin"}).select({orders: 1, _id: 0})
@@ -293,22 +340,3 @@ exports.findLabour = async (req, res) => {
         })
     }
 }
-
-// exports.rejectOrder = async (req, res) => {
-//     try{
-//         const {email, orderid} = req.body;
-//         const usersRes =  await Labour.deleteOne({orders: {$elemMatch: {orderid: orderid}}, email}, {$set: {"orders.$.labour": email}});
-//         return res.status(200).json({
-//             success: true,
-//             message: "Users Details Fetched Successfully",
-//             data: usersRes
-//         })
-//     }
-//     catch(error){
-//         return res.status(500).json({
-//             success: false,
-//             message: "Internal Server Error with orders",
-//             error: error.message
-//         })
-//     }
-// }

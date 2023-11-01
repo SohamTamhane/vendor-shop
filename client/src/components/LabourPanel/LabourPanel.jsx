@@ -16,6 +16,7 @@ function LabourPanel(){
                     <div className="admin-panel-heading">Labour Panel</div>
                     <div className="admin-panel-options-div">
                         <Link to='/labour/orders' className="admin-panel-options">Manage Orders</Link>
+                        <Link to='/labour/edit' className="admin-panel-options">Edit Profile</Link>
                     </div>
                 </div>
             </div>

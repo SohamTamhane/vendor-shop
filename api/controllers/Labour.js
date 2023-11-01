@@ -103,3 +103,49 @@ exports.labours = async (req, res) => {
         })
     }
 }
+
+exports.oneLabour = async (req, res) => {
+    try{
+        const {email} = req.body;
+        const usersRes = await Labour.find({role: "Labour", email}).select({name: 1, email: 1, mobile: 1, vehicleNo: 1, _id: 0});
+        return res.status(200).json({
+            success: true,
+            message: "Users Details Fetched Successfully",
+            data: usersRes
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error with orders",
+            error: error.message
+        })
+    }
+}
+
+exports.updateInfo = async (req, res) => {
+    try{
+        const {name, mobile, vehicleNo, email, role} = req.body;
+        
+        if(!email || !role){
+            return res.status(401).json({
+                success: false,
+                message: "Authorized Access"
+            })
+        }
+        const response = await Labour.findOneAndUpdate({email, role}, {
+            name, mobile, vehicleNo
+        })
+        return res.status(200).json({
+            success: true,
+            message: "Labour Details Updated Successfully"
+        })
+    }
+    catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message
+        })
+    }
+}

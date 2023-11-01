@@ -41,6 +41,13 @@ function SingleProduct(){
                 setCart([...cart, {...product.data[0], qty, orderid, status, user: loginInfo.email, read: false, labour: false}]);
                 navigate('/cart')
             }
+            else{
+                const remCart = cart.filter(elm=>
+                    elm._id!==product.data[0]._id
+                )
+                setCart([...remCart, {...existingCart, qty: existingCart.qty + 1}]);
+                navigate('/cart')
+            }
         }
         else{
             navigate('/login');
